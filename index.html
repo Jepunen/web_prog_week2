@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app">
+      <table id="table" style="text-align: left;">
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Admin</th>
+          <th>Image</th>
+        </tr>
+        <tr id="table-row-0">
+          <td>Webmaster</td>
+          <td>example@email.com</td>
+          <td>Demoland 123</td>
+          <td>X</td>
+          <td></td>
+        </tr>
+        <tr id="table-row-1">
+          <td>User123</td>
+          <td>example@email.com</td>
+          <td>Userplace 321</td>
+          <td>-</td>
+          <td></td>
+        </tr>
+        <tr id="table-row-2">
+          <td>AnotherUser222</td>
+          <td>example@email.com</td>
+          <td>AnotherPlace 21</td>
+          <td>-</td>
+          <td></td>
+        </tr>
+      </table>
+      <br />
+      <button id="empty-table">Clear table</button> <br />
+      <br />
+      <form id="form" action="">
+        <label for="input-username">Username:</label><br />
+        <input type="text" id="input-username" /><br />
+
+        <label for="input-email">Email:</label><br />
+        <input type="text" id="input-email" /><br />
+
+        <label for="input-address">Address:</label><br />
+        <input type="text" id="input-address" /><br />
+
+        <label for="input-admin">Admin:</label><br />
+        <input type="text" id="input-admin" /><br />
+
+        <input type="button" id="submit-data" value="Submit" />
+        <input type="file" id="input-image" />
+      </form>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
