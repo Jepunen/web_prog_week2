@@ -23,7 +23,8 @@ function addRowToTable() {
 
   if (usernamesInTable.includes(username)) {
     let rowOfUsername = usernamesInTable.indexOf(username);
-    let usernameRow = document.getElementById("table-row-" + rowOfUsername);
+    console.log(rowOfUsername)
+    let usernameRow = document.getElementById("table-row-" + (rowOfUsername + 2));
 
     usernameRow.cells[0].innerHTML = username;
     usernameRow.cells[1].innerHTML = email;
@@ -40,6 +41,8 @@ function addRowToTable() {
       usernameRow.cells[4].innerHTML = "<td></td>";
     }
   } else {
+    usernamesInTable.push(username);
+
     var newRow = table.insertRow(-1);
     var usernameCell = newRow.insertCell();
     var emailCell = newRow.insertCell();
@@ -47,7 +50,7 @@ function addRowToTable() {
     var AdminCell = newRow.insertCell();
     var imageCell = newRow.insertCell();
 
-    newRow.setAttribute("id", "table-row-" + table.rows.length - 2);
+    newRow.setAttribute("id", "table-row-" + table.rows.length);
     usernameCell.innerHTML = username;
     emailCell.innerHTML = email;
     AddressCell.innerHTML = address;
@@ -60,9 +63,7 @@ function addRowToTable() {
       image.width = 64;
       imageCell.appendChild(image);
     } else {
-      imageCell.innerHTML = "<td>test</td>";
+      imageCell.innerHTML = "<td></td>";
     }
-
-    usernamesInTable.push(document.getElementById("input-username").value);
   }
 }
