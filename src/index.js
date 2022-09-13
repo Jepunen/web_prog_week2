@@ -16,29 +16,29 @@ clearTableBtn.addEventListener("click", () => {
 
 // Help with insertRow: https://www.w3schools.com/jsref/met_table_insertrow.asp
 function addRowToTable() {
-  console.log("Added a row to table");
-
   let username = document.getElementById("input-username").value;
   let email = document.getElementById("input-email").value;
   let address = document.getElementById("input-address").value;
-  let admin = document.getElementById("input-admin").value;
+  let admin = document.getElementById("input-admin");
 
   if (usernamesInTable.includes(username)) {
     let rowOfUsername = usernamesInTable.indexOf(username);
     let usernameRow = document.getElementById("table-row-" + rowOfUsername);
 
-    console.log(usernameRow.cells);
-
     usernameRow.cells[0].innerHTML = username;
     usernameRow.cells[1].innerHTML = email;
     usernameRow.cells[2].innerHTML = address;
-    usernameRow.cells[3].innerHTML = admin;
+    usernameRow.cells[3].innerHTML = admin.checked ? "X" : "-";
 
-    let image = document.createElement("img");
-    image.src = URL.createObjectURL(imageElement.files[0]);
-    image.height = 64;
-    image.width = 64;
-    usernameRow.cells[4].appendChild(image);
+    if (imageElement.value !== "") {
+      let image = document.createElement("img");
+      image.src = URL.createObjectURL(imageElement.files[0]);
+      image.height = 64;
+      image.width = 64;
+      usernameRow.cells[4].appendChild(image);
+    } else {
+      usernameRow.cells[4].innerHTML = "<td></td>";
+    }
   } else {
     var newRow = table.insertRow(-1);
     var usernameCell = newRow.insertCell();
@@ -51,15 +51,18 @@ function addRowToTable() {
     usernameCell.innerHTML = username;
     emailCell.innerHTML = email;
     AddressCell.innerHTML = address;
-    AdminCell.innerHTML = admin;
+    AdminCell.innerHTML = admin.checked ? "X" : "-";
 
-    let image = document.createElement("img");
-    image.src = URL.createObjectURL(imageElement.files[0]);
-    image.height = 64;
-    image.width = 64;
-    imageCell.appendChild(image);
+    if (imageElement.value !== "") {
+      let image = document.createElement("img");
+      image.src = URL.createObjectURL(imageElement.files[0]);
+      image.height = 64;
+      image.width = 64;
+      imageCell.appendChild(image);
+    } else {
+      imageCell.innerHTML = "<td>test</td>";
+    }
 
     usernamesInTable.push(document.getElementById("input-username").value);
   }
-  console.log(usernamesInTable);
 }
